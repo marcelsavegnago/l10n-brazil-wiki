@@ -70,18 +70,17 @@ Porque meu bug foi fechado sem efetuar o merge?
 ----------------------------------------
 Um pull request é fechado quando ele não será incorporado na localização. Isto geralmente irá acontecer se a tarefa/bug:
 
-* não é relevante para o desenvolvimento (label *inválido*)
-* não é considerado um bug ou não se tem planos para mudar o comportamento atual (label *semcorrecao*)
-* o bug já se encontra descrito em outro bug ou tarefa (label *duplicado*)
+* não é relevante para o desenvolvimento (label *invalid*)
+* não é considerado um bug ou não se tem planos para mudar o comportamento atual (label *wontfix*)
+* o bug já se encontra descrito em outro bug ou tarefa (label *duplicate*)
 * o pull request deve ser resubmetido contra outra versão
 
 
 Significado dos labels
 -----------------
 
-- **blocked**: a fix or information from the author of the request is required before merging
-- **confirmed**: issue was validated by qualification team
-- **need review**: a second level of review is required
-- **wishlist**: new feature, to discuss if will be integrated
-- **RDWIP**: Internal pull request, work in progress (by odoo SA RD team)
-- **OE**: pull request created to solve an odoo enterprise ticket
+- **bloqueado**: uma correção ou informação do autor da requisição é requerida antes do merge
+- **bug**: o bug foi confirmado
+- **needs review**: um segundo nível de review é requerido
+- **enhancement**: nova funcionalidade, deve ser discutido se será integrado ou desenvolvido
+- **refactoring**: melhoramento de código

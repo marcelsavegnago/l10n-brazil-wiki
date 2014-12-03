@@ -29,7 +29,8 @@ Resultado esperado*:
  - Preço total de 20,00 (2 * 10 = 20)
 ```
 
-***se puder adicionar imagens melhor**
+*se puder adicionar imagens melhor
+
 
 Contra qual versão eu devo submeter meu patch?
 ----------------------------------------------
@@ -65,14 +66,14 @@ XML files (views, menus, default data, etc.) should only be changed if inevitabl
 * Critical security fixes must not depend on an explicit module update to take effect, they must work with a simple pull + restart
 
 
-Why was my issue closed without merging?
+Porque meu bug foi fechado sem efetuar o merge?
 ----------------------------------------
-A pull request is closed when it will not be merged into odoo. This will typically happens if the fix/issue:
+Um pull request é fechado quando ele não será incorporado na localização. Isto geralmente irá acontecer se a tarefa/bug:
 
-* is not relevant to odoo development (label *invalid*)
-* is not considered as a bug or we have no plan to change the current behavior (label *wontfix*)
-* is a duplicate of another opened issue (label *duplicate*)
-* the pull request should be resubmitted against another version
+* não é relevante para o desenvolvimento (label *inválido*)
+* não é considerado um bug ou não se tem planos para mudar o comportamento atual (label *semcorrecao*)
+* o bug já se encontra descrito em outro bug ou tarefa (label *duplicado*)
+* o pull request deve ser resubmetido contra outra versão
 
 
 Significado dos labels

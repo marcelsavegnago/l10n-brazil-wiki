@@ -17,7 +17,8 @@ Versões com problema:
 Passos para reproduzir:
  
  1. criar um novo pedido de venda
- 2. adicione uma linha com o produto 'Serviço', quantidade 2, preço unitário 10,00
+ 2. adicione uma linha com o produto 'Serviço', 
+quantidade 2, preço unitário 10,00
  3. valide o pedido de venda
  
 Resultado atual*:
@@ -35,7 +36,7 @@ Resultado esperado*:
 Contra qual versão eu devo submeter meu patch?
 ----------------------------------------------
 
-Correções feitas nas branchs suportadas (atualmente **7.0**, **8.0** ) serão automaticamente transferidas paras o branchs superiores (master). Não é necessário criar um Pull Request para a versão master se já foi criado para a versão 8.0 ou 7.0 por exemplo.
+Correções feitas nas branchs suportadas (atualmente **7.0**, **8.0** ) serão automaticamente transferidas paras o branchs superiores (develop). Não é necessário criar um Pull Request para a versão master se já foi criado para a versão 8.0 ou 7.0 por exemplo.
 
 ![Submitting against the right version](https://raw.githubusercontent.com/odoo/odoo/master/doc/_static/pull-request-version.png)
 
@@ -49,21 +50,21 @@ Correções feitas nas branchs suportadas (atualmente **7.0**, **8.0** ) serão 
 
 O que "estável" significa?
 ------------------------
-Changes in stable series must respect these guidelines:
-* Keep changes to a minimum: stable patches must have a good value/risk ratio. If risk is too high or value too low, it must not be merged at all in stable (rather in the development series)
-* No "improvement" (technical or functional) should be done in stable, they typically have a very low value/risk ratio. Often, the functional coverage is voluntarily limited.
-* No purely cosmetic changes (formatting, pep8, etc.)
-* No change in the signature of public methods on model (methods not starting with an underscore)
-* No data model change: stored columns definitions must not be altered in incompatible manners under any circumstances (no addition / removal / incompatible type change)
-* Limited, compatible changes such as changing `ondelete` rules or `size` parameters are allowed when necessary.
-* For non-compatible change, in extreme cases an extra auto-install module could be added in order to automatically patch new installations without breaking existing ones
-* No change to the XML IDs of existing module data, and no deletion of module data records that may be referenced by user data in existing databases, unless the changes are absolutely essential and the records were in "noupdate" mode initially.
-* No change in the structure of workflows (new/relocated activities/transitions) unless the change is 100% safe for existing records and does not break anything with or without update.
-* Non-stored function fields may be added if it is really necessary.
-XML files (views, menus, default data, etc.) should only be changed if inevitable. When changed, the change must not be mandatory, i.e. the Python code must not depend on the change.
-* It is fine if a bugfix requires an explicit update, as long as it is safe for users who are not aware of it and do not perform the update.
-* A bugfix must not require updating the source code of 2 different modules at the same time, (or server and addons at the same time). As of v7 the embedded 1-click update system may selectively update modules (including base) without re-downloading the source of all modules.
-* Critical security fixes must not depend on an explicit module update to take effect, they must work with a simple pull + restart
+Mudanças na versão estável devem respeitar estas orientações:
+* Manter alterações ao mínimo: correções estáveis deve ter uma boa relação de valor / risco. Se o risco é muito alto ou um valor muito baixo, não devem ser incorporada na versão estável (devem ser na develop)
+* Nenhuma "melhoria" (técnico ou funcional) deve ser feito na estável, eles apresentam uma relação de muito baixo valor / risco.
+* Nenhuma mudança puramente cosmética (formatação, pep8, etc.)
+* Nenhuma mudança na assinatura de métodos públicos em modelo (métodos não começam com um sublinhado)
+* Não houve alteração do modelo de dados: armazenado colunas definições não devem ser alterados de maneiras incompatíveis sob quaisquer circunstâncias (sem adição / remoção / mudança tipo incompatível)
+* Limitadas, alterações compatíveis, tais como a mudança `regras onDelete` ou` parâmetros size` são permitidos quando necessário.
+* Para as mudança não-compatíveis, em casos extremos, um módulo de auto-instalar extra poderia ser adicionado a fim de corrigir automaticamente novas instalações sem quebrar os já existentes
+* Nenhuma alteração das IDs XML de dados do módulo existente, não supressão de registos módulo que podem ser referenciados por dados do usuário em bancos de dados existentes, a menos que as mudanças são absolutamente essenciais e os registros estavam no modo "noupdate" inicialmente.
+* Nenhuma mudança na estrutura dos fluxos de trabalho (novos / atividades realocados / transições), a menos que a mudança é 100% seguro para os registros existentes e não quebrar nada com ou sem atualização.
+* Campos-não armazenados função pode ser adicionada, se for realmente necessário.
+Arquivos XML (exibições, menus, dados padrão, etc.) só deve ser alterada se inevitável. Quando mudou, a mudança não deve ser obrigatória, ou seja, o código Python não deve depender da mudança.
+* É bom se uma correção de bug requer uma atualização explícita, contanto que ele é seguro para usuários que não são conscientes disso e não realizar a atualização.
+* Uma correção de erro não deve exigir a ctualização do código de fonte de 2 módulos diferentes, ao mesmo tempo, (ou servidor de complementos e ao mesmo tempo). A partir de v7 o sistema de atualização 1-click incorporado pode atualizar seletivamente módulos (incluindo a base), sem re-download a fonte de todos os módulos.
+* Correções críticas de segurança não deve depender de uma atualização do módulo explícita para entrar em vigor, devem trabalhar com um simples pull+restart
 
 
 Porque meu bug foi fechado sem efetuar o merge?

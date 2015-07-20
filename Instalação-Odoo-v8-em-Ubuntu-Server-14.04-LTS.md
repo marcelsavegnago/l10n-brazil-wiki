@@ -41,7 +41,7 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 
 
 9. Instale as bibliotecas Python necessárias para o Odoo:
-	> sudo apt-get install python-dev python-yaml python-feedparser python-geoip python-imaging python-pybabel python-unicodecsv wkhtmltopdf libxml2-dev libxmlsec1-dev python-argparse python-Babel python-cups python-dateutil python-decorator python-docutils python-feedparser python-gdata python-gevent python-greenlet python-Jinja2 python-libxslt1 python-lxml python-Mako python-MarkupSafe python-mock python-openid python-passlib python-psutil python-psycopg2 python-pychart python-pydot python-pyparsing python-pyPdf python-ldap python-yaml python-reportlab python-requests python-simplejson python-six python-tz python-unittest2 python-vatnumber python-vobject python-webdav python-Werkzeug python-wsgiref python-xlwt python-zsi
+	> sudo apt-get install python-dev python-yaml python-feedparser python-geoip python-imaging python-pybabel python-unicodecsv wkhtmltopdf libxml2-dev libxmlsec1-dev python-argparse python-Babel python-cups python-dateutil python-decorator python-docutils python-feedparser python-gdata python-gevent python-greenlet python-Jinja2 python-libxslt1 python-lxml python-Mako python-MarkupSafe python-mock python-openid python-passlib python-psutil python-psycopg2 python-pychart python-pydot python-pyparsing python-pyPdf python-ldap python-yaml python-reportlab python-requests python-simplejson python-six python-tz python-unittest2 python-vatnumber python-vobject python-webdav python-Werkzeug python-wsgiref python-xlwt python-zsi python-dev libpq-dev poppler-utils python-pdftools antiword
 
 
 10. Instale as bibliotecas Python necessárias para o Odoo:
@@ -249,14 +249,18 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 	> *Confirmar senha: Mesma escolhida na etapa anterior
 
 
-42. Após a configuração do banco de dados, deve-se instalar os módulos da localização brasileira. No canto esquerdo, vá até “Módulos→Local Modules” e na listagem de módulos, instale os seguintes:
+42. Após a configuração do banco de dados, deve-se instalar os módulos básicos para o funcionamento do Odoo. Em “Configurações”, vá até “Módulos→Local Modules” e na listagem de módulos, instale os seguintes:
+
+ 	> CRM   *Módulo CRM padrão.
 
 	> Gestão de Vendas   * Módulo de vendas padrão. Escolha o plano de contas Brasileiro, moeda e impostos básicos de compra e venda.
+
+	> Online Biling   *Módulo padrão de transações on-line.
 
 	> Contabilidade e Finanças   * Módulo contábil padrão.
 
 
-43. Continuando a instalação da localização brasileira, deve-se agora instalar os módulos desenvolvidos pela comunidade (Akretion, Danimar, Kmee, etc.). Ainda em “Módulos→Local Modules”, remova o item “Aplicativos” do campo de pesquisa e para facilitar a instalação, defina a “visualização em lista” e ordene por “autor”.
+43. Continuando com a instalação, deve-se agora instalar os módulos desenvolvidos pela comunidade brasileira (Akretion, Danimar, Kmee, etc.). Ainda em “Módulos→Local Modules”, remova o item “Aplicativos” do campo de pesquisa e para facilitar a instalação, defina a “visualização em lista” e ordene por “autor”.
 
 
 44. Na listagem de módulos locais, marque os seguintes módulos:

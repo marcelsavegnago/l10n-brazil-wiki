@@ -244,7 +244,7 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 
 	> *Idioma predefinido: Português (BR)
 
-	> *Escolha uma palavra-passe: Defina a sua senha (Sua Senha para o usuário postgres)
+	> *Escolha uma palavra-passe: Defina a sua senha
 
 	> *Confirmar senha: Mesma escolhida na etapa anterior
 

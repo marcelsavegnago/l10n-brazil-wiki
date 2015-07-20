@@ -199,7 +199,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 
 
 33. Após o download dos módulos, deve-se reconfigurar o arquivo de configurações. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
-	> addons_path = /opt/odoo/openerp/addons,/opt/odoo/addons,,/opt/odoo/localizacao/l10n-brazil,/opt/odoo/localizacao/account-fiscal-rule,/opt/odoo/localizacao/odoo-brazil-eletronic-documents,/opt/odoo/localizacao/server-tools
+	> addons_path = /opt/odoo/addons,/opt/odoo/openerp/addons,/opt/odoo/localizacao/l10n-brazil,/opt/odoo/localizacao/account-fiscal-rule,/opt/odoo/localizacao/odoo-brazil-eletronic-documents,/opt/odoo/localizacao/server-tools
 
 Caso tenha algum outro módulo, este deve ser indicado em “addons_path”.
 
@@ -216,7 +216,7 @@ Caso tenha algum outro módulo, este deve ser indicado em “addons_path”.
 	> http://IP_ou_domain:8069
 
 
-37. Caso tenha funcionado corretamento, pode-se adicionar o script para que inicie automaticamente na inicialização do sistema:
+37. Caso tenha funcionado corretamente, pode-se adicionar o script para que inicie automaticamente na inicialização do sistema:
 	> sudo update-rc.d odoo-server defaults
 
 Agora é possível reiniciar o servidor que o Odoo iniciará automaticamente.
@@ -226,7 +226,7 @@ Agora é possível reiniciar o servidor que o Odoo iniciará automaticamente.
 	> ps aux | grep odoo
 
 
-39. Você deve ver uma linha similar a mostra abaixo, mostrando que o servidor está funcionando.
+39. Você deve ver uma linha similar a mostrada abaixo, informando que o servidor está funcionando.
 	> odoo  22743 0.2 9.3 147444 71392 ? Sl 01:30 0:05 python /opt/odoo/openerp-server -c /etc/odoo-server.conf
 
 

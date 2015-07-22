@@ -4,7 +4,6 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 1. Instale o OpenSSH, que além de acesso ao servidor, permite também limitar potenciais ataques de força bruta:
 	> sudo apt-get install openssh-server
 
-
 2. Deve-se agora definir as configurações locais (Locale) do servidor. No terminal, execute os comandos a seguir:
 	> export LANGUAGE=pt_BR.UTF-8
 
@@ -108,7 +107,7 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 
 	> Modifique a linha "addons_path = /usr/lib/python2.7/dist-packages/openerp/addons" para **"addons_path = /opt/odoo/addons"**
 
-	> Adicione a seguinte linha: logfile = /var/log/odoo/odoo-server.log**
+	> Adicione a seguinte linha: **logfile = /var/log/odoo/odoo-server.log**
 
 
 _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da localização._
@@ -121,65 +120,64 @@ _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da locali
 
 
 19. Criação do script de inicialização. Ao invés de utilizarmos o script padrão (/opt/odoo/debian/init), vamos utilizar um mais completo disponibilizado em http://www.comdesk.com.br/downloads/odoo/odoo-server.
-	> cd /etc/init.d/   *Pasta padrão do Ubuntu dos scripts de inicalização
+	> cd /etc/init.d/   #Pasta padrão do Ubuntu dos scripts de inicalização
 
 	> wget http://www.comdesk.com.br/downloads/odoo/odoo-server
 
-	> sudo chmod 755 /etc/init.d/odoo-server   *Permissão para executar arquivo
+	> sudo chmod 755 /etc/init.d/odoo-server   #Permissão para executar arquivo
 
 	> sudo chown root: /etc/init.d/odoo-server   #Usuário root como proprietário do arquivo
 
 
-19. Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
+20. Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
 	> sudo /etc/init.d/odoo-server start
 
 
-20. É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
+21. É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
 	> cat /var/log/odoo/odoo-server.log
 
-
-21. Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
+22. Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
 	> http://IP_ou_domain:8069
 
 
-22. Para seguir os pŕoximos passos, pare o servidor Odoo, digitando:
+23. Para seguir os pŕoximos passos, pare o servidor Odoo, digitando:
 	> sudo /etc/init.d/odoo-server stop
 
 
 
 Os próximos passos são necessários para a instalação da localização brasileira. Para facilitar o entendimento, vamos colocar os módulos na pasta /opt/odoo/localizacao.
 
-23. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
+24. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
 	> sudo su - odoo -s /bin/bash
 
 
-24. Crie uma pasta chamada “localizacao” e acesse-a:
+25. Crie uma pasta chamada “localizacao” e acesse-a:
 	> mkdir localizacao
 
 	> cd localizacao
 
 
-25. Faça o download do branch 8.0 da localização que está no github:
+26. Faça o download do branch 8.0 da localização que está no github:
 	> git clone https://github.com/odoo-brazil/l10n-brazil.git --branch 8.0 --depth 1
 
 
-26. Download do branch 8.0 do “Acoount Fiscal Rule”, que são dependências da localização:
+27. Download do branch 8.0 do “Acoount Fiscal Rule”, que são dependências da localização:
 	> git clone https://github.com/odoo-brazil/account-fiscal-rule.git --branch 8.0 --depth 1
 
 
-27. Faça o download do branch 8.0 do “Eletronic Documents”, que são dependências da NFe:
+28. Faça o download do branch 8.0 do “Eletronic Documents”, que são dependências da NFe:
 	> git clone https://github.com/odoo-brazil/odoo-brazil-eletronic-documents.git --branch 8.0 --depth 1
 
 
-28. Download do branch 8.0 do “Server Tools”, que são dependências, mantidas pela OCA:
+29. Download do branch 8.0 do “Server Tools”, que são dependências, mantidas pela OCA:
 	> git clone https://github.com/OCA/server-tools --branch 8.0 --depth 1
 
 
-29. Após finalizado os downloads, saia do usuário “odoo”, retornando ao usuário padrão:
+30. Após finalizado os downloads, saia do usuário “odoo”, retornando ao usuário padrão:
 	> exit
 
 
-30. Instalação do “Geraldo Reports”, necessário para relatórios pdf:
+31. Instalação do “Geraldo Reports”, necessário para relatórios pdf:
 	> cd /tmp
 
 	> git clone https://github.com/aricaldeira/geraldo --branch master
@@ -189,7 +187,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-31. Instalação do PySPED, necessário para NFe:
+32. Instalação do PySPED, necessário para NFe:
 	> cd /tmp
 
 	> git clone https://github.com/odoo-brazil/PySPED.git --branch 8.0
@@ -199,7 +197,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-32. Instalação do “pyxmlsec”, necessário para NFe:
+33. Instalação do “pyxmlsec”, necessário para NFe:
 	> cd /tmp
 
 	> git clone https://github.com/aricaldeira/pyxmlsec --branch master
@@ -209,44 +207,44 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-33. Após o download dos módulos, deve-se reconfigurar o arquivo de configurações. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
+34. Após o download dos módulos, deve-se reconfigurar o arquivo de configurações. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
 	> addons_path = /opt/odoo/addons,/opt/odoo/openerp/addons,/opt/odoo/localizacao/l10n-brazil,/opt/odoo/localizacao/account-fiscal-rule,/opt/odoo/localizacao/odoo-brazil-eletronic-documents,/opt/odoo/localizacao/server-tools
 
 Caso tenha algum outro módulo, este deve ser indicado em “addons_path”.
 
 
-34. Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
+35. Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
 	> sudo /etc/init.d/odoo-server start
 
 
-35. É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
+36. É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
 	> cat /var/log/odoo/odoo-server.log
 
 
-36. Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
+37. Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
 	> http://IP_ou_domain:8069
 
 
-37. Caso tenha funcionado corretamente, pode-se adicionar o script para que inicie automaticamente na inicialização do sistema:
+38. Caso tenha funcionado corretamente, pode-se adicionar o script para que inicie automaticamente na inicialização do sistema:
 	> sudo update-rc.d odoo-server defaults
 
-Agora é possível reiniciar o servidor que o Odoo iniciará automaticamente.
+_Agora é possível reiniciar o servidor que o Odoo iniciará automaticamente._
 
 
-38. Ao digitar o comando a seguir:
+39. Ao digitar o comando a seguir:
 	> ps aux | grep odoo
 
 
-39. Você deve ver uma linha similar a mostrada abaixo, informando que o servidor está funcionando.
+40. Você deve ver uma linha similar a mostrada abaixo, informando que o servidor está funcionando.
 	> odoo  22743 0.2 9.3 147444 71392 ? Sl 01:30 0:05 python /opt/odoo/openerp-server -c /etc/odoo-server.conf
 
 
 Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necessários para a localização brasileira.
 
-40. Acesso o Oddo pelo seu navegador de internet:
+41. Acesso o Oddo pelo seu navegador de internet:
 	> http://IP_ou_domain:8069
 
-41. Começaremos configurando o banco de dados, portanto, a tela que aparece defina o seguinte:
+42. Começaremos configurando o banco de dados, portanto, a tela que aparece defina o seguinte:
 	> *Senha da administração: mantenha a atual (admin)
 
 	> *Selecione nome da base de dados: database_odoo (ex: comdesk_odoo)
@@ -260,7 +258,7 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 	> *Confirmar senha: Mesma escolhida na etapa anterior
 
 
-42. Após a configuração do banco de dados, deve-se instalar os módulos básicos para o funcionamento do Odoo. Em “Configurações”, vá até “Módulos→Local Modules” e na listagem de módulos, instale os seguintes:
+43. Após a configuração do banco de dados, deve-se instalar os módulos básicos para o funcionamento do Odoo. Em “Configurações”, vá até “Módulos→Local Modules” e na listagem de módulos, instale os seguintes:
 
  	> CRM   *Módulo CRM padrão.
 
@@ -270,11 +268,17 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 
 	> Contabilidade e Finanças   * Módulo contábil padrão.
 
+	> Gestão de Armazém   #Módulo de estoque padrão.
 
-43. Continuando com a instalação, deve-se agora instalar os módulos desenvolvidos pela comunidade brasileira (Akretion, Danimar, Kmee, etc.). Ainda em “Módulos→Local Modules”, remova o item “Aplicativos” do campo de pesquisa e para facilitar a instalação, defina a “visualização em lista” e ordene por “autor”.
+	> Gestão de Compras   #Módulo de compras padrão.
+
+_Demais módulos e dependências serão instalados automaticamente._
 
 
-44. Na listagem de módulos locais, marque os seguintes módulos:
+44. Continuando com a instalação, deve-se agora instalar os módulos desenvolvidos pela comunidade brasileira (Akretion, Danimar, Kmee, etc.). Ainda em “Módulos→Local Modules”, remova o item “Aplicativos” do campo de pesquisa e para facilitar a instalação, defina a “visualização em lista” e ordene por “autor”.
+
+
+45. Na listagem de módulos locais, marque os seguintes módulos:
 
 * Account Fiscal Position Rule Purchase
 * Account Product Fiscal Classification
@@ -310,7 +314,7 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 
 
 
-45. Após todos marcados, clique no botão [Mais], localizado na parte superior da tela de módulos locais e escolha a opção “Instale o módulo de imediato”.
+46. Após todos marcados, clique no botão [Mais], localizado na parte superior da tela de módulos locais e escolha a opção “Instale o módulo de imediato”.
 
 A instalação de todos os módulos num mesmo momento, busca evitar o problema de dependências não instaladas.
 

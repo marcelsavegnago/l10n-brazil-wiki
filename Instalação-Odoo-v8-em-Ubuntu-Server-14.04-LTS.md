@@ -5,25 +5,36 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 	> sudo apt-get install openssh-server
 
 
-2. Ainda no terminal, atualize o seu sistema:
+2. Deve-se agora definir as configurações locais (Locale) do servidor. No terminal, execute os comandos a seguir:
+	> export LANGUAGE=pt_BR.UTF-8
+
+	> export LANG=pt_BR.UTF-8
+
+	> sudo locale-gen pt_BR pt_BR.UTF-8
+
+	> sudo dpkg-reconfigure locales
+
+_Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-se (logout) e conecte-se novamente (login)._
+
+3. Ainda no terminal, atualize o seu sistema:
 	> sudo apt-get update
 
 	> sudo apt-get dist-upgrade
 
 
-3. Crie o usuário “odoo” e que será o proprietário da aplicação e a sua respectiva pasta:
+4. Crie o usuário “odoo” e que será o proprietário da aplicação e a sua respectiva pasta:
 	> sudo adduser --system --home=/opt/odoo --group odoo
 
 
-4. Instalar e configurar o serviço de banco de dados PostgreSQL:
+5. Instalar e configurar o serviço de banco de dados PostgreSQL:
 	> sudo apt-get install postgresql
 
 
-5. Deve-se agora configurar o usuário “odoo” no postgres, para isso, altere o usuário atual para postgres, a fim de ter os privilégios necessários para configurar a base de dados:
+6. Deve-se agora configurar o usuário “odoo” no postgres, para isso, altere o usuário atual para postgres, a fim de ter os privilégios necessários para configurar a base de dados:
 	> sudo su - postgres
 
 
-6. Agora, crie o novo usuário do banco de dados. O usuário “odoo” terá direitos de acesso para se conectar, criar e eliminar bancos de dados. Anote a senha definida aqui, pois será necessário mais adiante:
+7. Agora, crie o novo usuário do banco de dados. O usuário “odoo” terá direitos de acesso para se conectar, criar e eliminar bancos de dados. Anote a senha definida aqui, pois será necessário mais adiante:
 	> createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo
 
 	> Enter password for new role: ******* (Sua Senha para o usuário postgres 'odoo' )
@@ -31,20 +42,20 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 	> Enter it again: *******
 
 
-7. Saia do usuário postgres:
+8. Saia do usuário postgres:
 	> exit
 
 
-8. Instalar git:
+9. Instalar git:
 	> sudo apt-get install git
 
 
 
-9. Instale as bibliotecas Python necessárias para o Odoo:
+10. Instale as bibliotecas Python necessárias para o Odoo:
 	> sudo apt-get install python-dev python-yaml python-feedparser python-geoip python-imaging python-pybabel python-unicodecsv wkhtmltopdf libxml2-dev libxmlsec1-dev python-argparse python-Babel python-cups python-dateutil python-decorator python-docutils python-feedparser python-gdata python-gevent python-greenlet python-Jinja2 python-libxslt1 python-lxml python-Mako python-MarkupSafe python-mock python-openid python-passlib python-psutil python-psycopg2 python-pychart python-pydot python-pyparsing python-pyPdf python-ldap python-yaml python-reportlab python-requests python-simplejson python-six python-tz python-unittest2 python-vatnumber python-vobject python-webdav python-Werkzeug python-wsgiref python-xlwt python-zsi python-dev libpq-dev poppler-utils python-pdftools antiword
 
 
-10. Instale as bibliotecas Python necessárias para o Odoo:
+11. Instale as bibliotecas Python necessárias para o Odoo:
 	> sudo apt-get install python-pip   #Necessário para o PIP
 
 	> sudo apt-get install python-setuptools   #Para Python v3 (python3-setuptools)
@@ -68,23 +79,23 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 	> sudo pip install pytz==2014.4
 
 
-11. Instale as dependências do WKHTMLTOX:
+12. Instale as dependências do WKHTMLTOX:
 	> sudo apt-get install xfonts-base xfonts-75dpi xfonts-encodings xfonts-utils fontconfig fontconfig-config libexpat1 libfontconfig1 libfreetype6 libjbig0 libjpeg8 libpng12-0 libssl1.0.0 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxfont1 libfontenc1 libxrender1 ttf-dejavu-core ucf x11-common
 
 
-12. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
+13. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
 	> sudo su - odoo -s /bin/bash
 
 
-13. Faça o download do corrente branch do odoo que está no github:
+14. Faça o download do corrente branch do odoo que está no github:
 	> git clone https://www.github.com/odoo/odoo --depth 1 --branch 8.0 --single-branch .
 
 
-14. Após finalizada a cópia, saia do usuário “odoo”:
+15. Após finalizada a cópia, saia do usuário “odoo”:
 	> exit
 
 
-15. Deve-se agora criar um arquivo de configuração, baseado em um arquivo padrão e definir as respectivas permissões:
+16. Deve-se agora criar um arquivo de configuração, baseado em um arquivo padrão e definir as respectivas permissões:
 	> sudo cp /opt/odoo/debian/openerp-server.conf /etc/odoo-server.conf
 
 	> sudo chown odoo: /etc/odoo-server.conf
@@ -92,29 +103,29 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 	> sudo chmod 640 /etc/odoo-server.conf
 
 
-16. Para permitir que o Odoo instale os módulos corretamente, deve-se alterar duas linhas nesse arquivo recém criado e adicionar uma terceira linha para o log. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
+17. Para permitir que o Odoo instale os módulos corretamente, deve-se alterar duas linhas nesse arquivo recém criado e adicionar uma terceira linha para o log. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf
 	> Altere "db_password = False" para **“db_password = senha do postgres”** (passo 6).
 
 	> Modifique a linha "addons_path = /usr/lib/python2.7/dist-packages/openerp/addons" para **"addons_path = /opt/odoo/addons"**
 
-	> Adiciona a seguinte linha: l**ogfile = /var/log/odoo/odoo-server.log**
+	> Adicione a seguinte linha: logfile = /var/log/odoo/odoo-server.log**
 
 
-Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da localização.
+_Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da localização._
 
 
-17. Crie a pasta para o arquivo de log e defina o respectivo proprietário:
+18. Crie a pasta para o arquivo de log e defina o respectivo proprietário:
 	> sudo mkdir /var/log/odoo
 
 	> sudo chown odoo:root /var/log/odoo
 
 
-18. Criação do script de inicialização. Ao invés de utilizarmos o script padrão (/opt/odoo/debian/init), vamos utilizar um mais completo disponibilizado em http://www.comdesk.com.br/downloads/odoo/odoo-server.
-	> cd /etc/init.d/   #Pasta padrão do Ubuntu dos scripts de inicalização
+19. Criação do script de inicialização. Ao invés de utilizarmos o script padrão (/opt/odoo/debian/init), vamos utilizar um mais completo disponibilizado em http://www.comdesk.com.br/downloads/odoo/odoo-server.
+	> cd /etc/init.d/   *Pasta padrão do Ubuntu dos scripts de inicalização
 
 	> wget http://www.comdesk.com.br/downloads/odoo/odoo-server
 
-	> sudo chmod 755 /etc/init.d/odoo-server   #Permissão para executar arquivo
+	> sudo chmod 755 /etc/init.d/odoo-server   *Permissão para executar arquivo
 
 	> sudo chown root: /etc/init.d/odoo-server   #Usuário root como proprietário do arquivo
 

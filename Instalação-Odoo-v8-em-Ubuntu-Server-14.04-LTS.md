@@ -4,7 +4,7 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 1. Instale o OpenSSH, que além de acesso ao servidor, permite também limitar potenciais ataques de força bruta:
 	> sudo apt-get install openssh-server
 
-2. Deve-se agora definir as configurações locais (Locale) do servidor. No terminal, execute os comandos a seguir:
+2. Deve-se agora definir as configurações locais (Locale) do servidor. No terminal, execute os 4 comandos a seguir:
 	> export LANGUAGE=pt_BR.UTF-8
 
 	> export LANG=pt_BR.UTF-8

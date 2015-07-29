@@ -292,37 +292,37 @@ _Demais módulos e dependências serão instalados automaticamente._
 
 - Na listagem de módulos locais, marque os seguintes módulos:
 
-* Account Fiscal Position Rule Purchase
-* Account Product Fiscal Classification
-* Nota Fiscal Eletronica
-* Account Fiscal Position Rule
-* Account Fiscal Position Rule Sale
-* Account Fiscal Position Rule Stock
-* Scheduler Error Mailer
-* Web Context Tunnel
-* Brasileiro - Contabilidade
-* Localização Brasileira - Módulo base contabilidade
-* Localização Brasileira - Módulo de Pagamentos
-* Localização Brasileira - Módulo Informações Contabéis do Produto
-* Localização Brasileira - Módulo Contábil de Serviços
-* Localização Brasileira - Módulo de Serviços
-* Localização Brasileira - Módulo de Recibo de Pagamentos
-* Localização Brasileira - Módulo Base
-* Localização Brasileira - Módulo de CRM
-* Localização Brasileira - Dados para o módulo de contabilidade
-* Localização Brasileira - Dados do módulo de produtos
-* Localização Brasileira - Dados do módulo de serviço
-* Localização Brasileira - Dados do módulo Base
-* Localização Brasileira - Módulo de Entrega
-* Localização Brasileira - Módulo de Produtos
-* Localização Brasileira - Módulo de compras
-* Localização Brasileira - Módulo de Vendas
-* Brazilian Localization Sale Product
-* Brazilian Localization Sale Service
-* Localização Brasileira - Módulo de Estoque
-* Localização Brasileira - CEP
-* Localização Brasileira - Módulo de Vendas e Estoque
-* Manifesto Destinatário NFe
+1. * * * Account Fiscal Position Rule Purchase
+1. * * * Account Product Fiscal Classification
+1. * * * Nota Fiscal Eletronica
+1. * * * Account Fiscal Position Rule
+1. * * * Account Fiscal Position Rule Sale
+1. * * * Account Fiscal Position Rule Stock
+1. * * * Scheduler Error Mailer
+1. * * * Web Context Tunnel
+1. * * * Brasileiro - Contabilidade
+1. * * * Localização Brasileira - Módulo base contabilidade
+1. * * * Localização Brasileira - Módulo de Pagamentos
+1. * * * Localização Brasileira - Módulo Informações Contabéis do Produto
+1. * * * Localização Brasileira - Módulo Contábil de Serviços
+1. * * * Localização Brasileira - Módulo de Serviços
+1. * * * Localização Brasileira - Módulo de Recibo de Pagamentos
+1. * * * Localização Brasileira - Módulo Base
+1. * * * Localização Brasileira - Módulo de CRM
+1. * * * Localização Brasileira - Dados para o módulo de contabilidade
+1. * * * Localização Brasileira - Dados do módulo de produtos
+1. * * * Localização Brasileira - Dados do módulo de serviço
+1. * * * Localização Brasileira - Dados do módulo Base
+1. * * * Localização Brasileira - Módulo de Entrega
+1. * * * Localização Brasileira - Módulo de Produtos
+1. * * * Localização Brasileira - Módulo de compras
+1. * * * Localização Brasileira - Módulo de Vendas
+1. * * * Brazilian Localization Sale Product
+1. * * * Brazilian Localization Sale Service
+1. * * * Localização Brasileira - Módulo de Estoque
+1. * * * Localização Brasileira - CEP
+1. * * * Localização Brasileira - Módulo de Vendas e Estoque
+1. * * * Manifesto Destinatário NFe
 
 
 

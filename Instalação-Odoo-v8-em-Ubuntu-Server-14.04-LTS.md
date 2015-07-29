@@ -1,10 +1,10 @@
 Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pelo Github, com isso, teremos sempre as últimas versões liberadas pela comunidade. Antes de seguir os passos abaixo, sugerimos ter uma instalação limpa do Ubuntu, com as configurações de rede já definidas.
 
 
-1. Instale o OpenSSH, que além de acesso ao servidor, permite também limitar potenciais ataques de força bruta:
+- Instale o OpenSSH, que além de acesso ao servidor, permite também limitar potenciais ataques de força bruta:
 	> sudo apt-get install openssh-server
 
-2. Deve-se agora definir as configurações locais (Locale) do servidor. No terminal, execute os 4 comandos a seguir:
+- Deve-se agora definir as configurações locais (Locale) do servidor. No terminal, execute os 4 comandos a seguir:
 	> export LANGUAGE=pt_BR.UTF-8
 
 	> export LANG=pt_BR.UTF-8
@@ -15,25 +15,25 @@ Neste tutorial será apresentado como fazer a instalação padrão do Odoo v8 pe
 
 _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-se (logout) e conecte-se novamente (login)._
 
-3. Ainda no terminal, atualize o seu sistema:
+- Ainda no terminal, atualize o seu sistema:
 	> sudo apt-get update
 
 	> sudo apt-get dist-upgrade
 
 
-4. Crie o usuário “odoo” e que será o proprietário da aplicação e a sua respectiva pasta:
+- Crie o usuário “odoo” e que será o proprietário da aplicação e a sua respectiva pasta:
 	> sudo adduser --system --home=/opt/odoo --group odoo
 
 
-5. Instalar e configurar o serviço de banco de dados PostgreSQL:
+- Instalar e configurar o serviço de banco de dados PostgreSQL:
 	> sudo apt-get install postgresql
 
 
-6. Deve-se agora configurar o usuário “odoo” no postgres, para isso, altere o usuário atual para postgres, a fim de ter os privilégios necessários para configurar a base de dados:
+- Deve-se agora configurar o usuário “odoo” no postgres, para isso, altere o usuário atual para postgres, a fim de ter os privilégios necessários para configurar a base de dados:
 	> sudo su - postgres
 
 
-7. Agora, crie o novo usuário do banco de dados. O usuário “odoo” terá direitos de acesso para se conectar, criar e eliminar bancos de dados. Anote a senha definida aqui, pois será necessário mais adiante:
+- Agora, crie o novo usuário do banco de dados. O usuário “odoo” terá direitos de acesso para se conectar, criar e eliminar bancos de dados. Anote a senha definida aqui, pois será necessário mais adiante:
 	> createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo
 
 	> Enter password for new role: ******* (Sua Senha para o usuário postgres 'odoo' )
@@ -78,11 +78,19 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 	> sudo pip install pytz==2014.4
 
 
-12. Instale as dependências do WKHTMLTOX:
-	> sudo apt-get install xfonts-base xfonts-75dpi xfonts-encodings xfonts-utils fontconfig fontconfig-config libexpat1 libfontconfig1 libfreetype6 libjbig0 libjpeg8 libpng12-0 libssl1.0.0 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxfont1 libfontenc1 libxrender1 ttf-dejavu-core ucf x11-common
 
+12. Para a instalação do WKHTMLtoPDF, necessário para geração dos arquivos PDF, deve-se escolher o download de acordo com o sistema operacional e arquitetura de seu sistema em http://wkhtmltopdf.org/downloads.html.  Em nosso caso, o sistema operacional é Ubuntu 14.04 (Trusty) e a arquitetura é 64 bits.
 
-13. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
+	> cd /tmp
+	> wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb   #Altere o download se necessário
+	> sudo dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+	> sudo cp /usr/local/bin/wkhtmltopdf /usr/bin
+	> sudo cp /usr/local/bin/wkhtmltoimage /usr/bin
+
+13. Confira a versão do wkhtmltopdf, digitando o seguinte comando no terminal:
+	> wkhtmltopdf –version   # Se a versão for 0.12.2.1, está correta
+
+13. 1. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
 	> sudo su - odoo -s /bin/bash
 
 

@@ -119,10 +119,10 @@ _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da locali
 	> sudo chown odoo:root /var/log/odoo
 
 
-19. Criação do script de inicialização. Ao invés de utilizarmos o script padrão (/opt/odoo/debian/init), vamos utilizar um mais completo disponibilizado em http://www.comdesk.com.br/downloads/odoo/odoo-server. (**Link com Connection timed out - ERRO 552 em 21/07 até hoje 23/07**) 
-	> cd /etc/init.d/   #Pasta padrão do Ubuntu dos scripts de inicalização
+19. Criação do script de inicialização. Ao invés de utilizarmos o script padrão (/opt/odoo/debian/init), pode ser baixado também em: https://raw.githubusercontent.com/odoo/odoo/8.0/debian/init
+	> cd /etc/init.d/   #Pasta padrão do Ubuntu dos scripts de inicialização
 
-	> wget http://www.comdesk.com.br/downloads/odoo/odoo-server
+	> wget https://raw.githubusercontent.com/odoo/odoo/8.0/debian/init
 
 	> sudo chmod 755 /etc/init.d/odoo-server   #Permissão para executar arquivo
 

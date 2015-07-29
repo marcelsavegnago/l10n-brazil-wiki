@@ -41,20 +41,20 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 	> Enter it again: *******
 
 
-8. Saia do usuário postgres:
+- Saia do usuário postgres:
 	> exit
 
 
-9. Instalar git:
+- Instalar git:
 	> sudo apt-get install git
 
 
 
-10. Instale as bibliotecas Python necessárias para o Odoo:
+- Instale as bibliotecas Python necessárias para o Odoo:
 	> sudo apt-get install python-dev python-yaml python-feedparser python-geoip python-imaging python-pybabel python-unicodecsv wkhtmltopdf libxml2-dev libxmlsec1-dev python-argparse python-Babel python-cups python-dateutil python-decorator python-docutils python-feedparser python-gdata python-gevent python-greenlet python-Jinja2 python-libxslt1 python-lxml python-Mako python-MarkupSafe python-mock python-openid python-passlib python-psutil python-psycopg2 python-pychart python-pydot python-pyparsing python-pyPdf python-ldap python-yaml python-reportlab python-requests python-simplejson python-six python-tz python-unittest2 python-vatnumber python-vobject python-webdav python-Werkzeug python-wsgiref python-xlwt python-zsi python-dev libpq-dev poppler-utils python-pdftools antiword
 
 
-11. Instale as bibliotecas Python necessárias para o Odoo:
+- Instale as bibliotecas Python necessárias para o Odoo:
 	> sudo apt-get install python-pip   #Necessário para o PIP
 
 	> sudo apt-get install python-setuptools   #Para Python v3 (python3-setuptools)
@@ -79,30 +79,34 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 
 
 
-12. Para a instalação do WKHTMLtoPDF, necessário para geração dos arquivos PDF, deve-se escolher o download de acordo com o sistema operacional e arquitetura de seu sistema em http://wkhtmltopdf.org/downloads.html.  Em nosso caso, o sistema operacional é Ubuntu 14.04 (Trusty) e a arquitetura é 64 bits.
+- Para a instalação do WKHTMLtoPDF, necessário para geração dos arquivos PDF, deve-se escolher o download de acordo com o sistema operacional e arquitetura de seu sistema em http://wkhtmltopdf.org/downloads.html.  Em nosso caso, o sistema operacional é Ubuntu 14.04 (Trusty) e a arquitetura é 64 bits.
 
 	> cd /tmp
+
 	> wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb   #Altere o download se necessário
+
 	> sudo dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+
 	> sudo cp /usr/local/bin/wkhtmltopdf /usr/bin
+
 	> sudo cp /usr/local/bin/wkhtmltoimage /usr/bin
 
-13. Confira a versão do wkhtmltopdf, digitando o seguinte comando no terminal:
+- Confira a versão do wkhtmltopdf, digitando o seguinte comando no terminal:
 	> wkhtmltopdf –version   # Se a versão for 0.12.2.1, está correta
 
-13. 1. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
+- Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
 	> sudo su - odoo -s /bin/bash
 
 
-14. Faça o download do corrente branch do odoo que está no github:
+- Faça o download do corrente branch do odoo que está no github:
 	> git clone https://www.github.com/odoo/odoo --depth 1 --branch 8.0 --single-branch .
 
 
-15. Após finalizada a cópia, saia do usuário “odoo”:
+- Após finalizada a cópia, saia do usuário “odoo”:
 	> exit
 
 
-16. Deve-se agora criar um arquivo de configuração, baseado em um arquivo padrão e definir as respectivas permissões:
+- Deve-se agora criar um arquivo de configuração, baseado em um arquivo padrão e definir as respectivas permissões:
 	> sudo cp /opt/odoo/debian/openerp-server.conf /etc/odoo-server.conf
 
 	> sudo chown odoo: /etc/odoo-server.conf
@@ -110,7 +114,7 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 	> sudo chmod 640 /etc/odoo-server.conf
 
 
-17. Para permitir que o Odoo instale os módulos corretamente, deve-se alterar duas linhas nesse arquivo recém criado e adicionar uma terceira linha para o log. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf
+- Para permitir que o Odoo instale os módulos corretamente, deve-se alterar duas linhas nesse arquivo recém criado e adicionar uma terceira linha para o log. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf
 	> Altere "db_password = False" para **“db_password = senha do postgres”** (passo 6).
 
 	> Modifique a linha "addons_path = /usr/lib/python2.7/dist-packages/openerp/addons" para **"addons_path = /opt/odoo/addons"**
@@ -121,13 +125,13 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da localização._
 
 
-18. Crie a pasta para o arquivo de log e defina o respectivo proprietário:
+- Crie a pasta para o arquivo de log e defina o respectivo proprietário:
 	> sudo mkdir /var/log/odoo
 
 	> sudo chown odoo:root /var/log/odoo
 
 
-19. Criação do script de inicialização. Utilizaremos o script padrão (/opt/odoo/debian/init), pode ser baixado também em: https://raw.githubusercontent.com/odoo/odoo/8.0/debian/init
+- Criação do script de inicialização. Utilizaremos o script padrão (/opt/odoo/debian/init), pode ser baixado também em: https://raw.githubusercontent.com/odoo/odoo/8.0/debian/init
 	> cd /etc/init.d/   #Pasta padrão do Ubuntu dos scripts de inicialização
 
 	> wget https://raw.githubusercontent.com/odoo/odoo/8.0/debian/init -O odoo-server
@@ -137,55 +141,55 @@ _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da locali
 	> sudo chown root: /etc/init.d/odoo-server   #Usuário root como proprietário do arquivo
 
 
-20. Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
+- Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
 	> sudo /etc/init.d/odoo-server start
 
 
-21. É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
+- É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
 	> cat /var/log/odoo/odoo-server.log
 
-22. Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
+- Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
 	> http://IP_ou_domain:8069
 
 
-23. Para seguir os pŕoximos passos, pare o servidor Odoo, digitando:
+- Para seguir os pŕoximos passos, pare o servidor Odoo, digitando:
 	> sudo /etc/init.d/odoo-server stop
 
 
 
 Os próximos passos são necessários para a instalação da localização brasileira. Para facilitar o entendimento, vamos colocar os módulos na pasta /opt/odoo/localizacao.
 
-24. Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
+- Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
 	> sudo su - odoo -s /bin/bash
 
 
-25. Crie uma pasta chamada “localizacao” e acesse-a:
+- Crie uma pasta chamada “localizacao” e acesse-a:
 	> mkdir localizacao
 
 	> cd localizacao
 
 
-26. Faça o download do branch 8.0 da localização que está no github:
+- Faça o download do branch 8.0 da localização que está no github:
 	> git clone https://github.com/odoo-brazil/l10n-brazil.git --branch 8.0 --depth 1
 
 
-27. Download do branch 8.0 do “Acoount Fiscal Rule”, que são dependências da localização:
+- Download do branch 8.0 do “Acoount Fiscal Rule”, que são dependências da localização:
 	> git clone https://github.com/odoo-brazil/account-fiscal-rule.git --branch 8.0 --depth 1
 
 
-28. Faça o download do branch 8.0 do “Eletronic Documents”, que são dependências da NFe:
+- Faça o download do branch 8.0 do “Eletronic Documents”, que são dependências da NFe:
 	> git clone https://github.com/odoo-brazil/odoo-brazil-eletronic-documents.git --branch 8.0 --depth 1
 
 
-29. Download do branch 8.0 do “Server Tools”, que são dependências, mantidas pela OCA:
+- Download do branch 8.0 do “Server Tools”, que são dependências, mantidas pela OCA:
 	> git clone https://github.com/OCA/server-tools --branch 8.0 --depth 1
 
 
-30. Após finalizado os downloads, saia do usuário “odoo”, retornando ao usuário padrão:
+- Após finalizado os downloads, saia do usuário “odoo”, retornando ao usuário padrão:
 	> exit
 
 
-31. Instalação do “Geraldo Reports”, necessário para relatórios pdf:
+- Instalação do “Geraldo Reports”, necessário para relatórios pdf:
 	> cd /tmp
 
 	> git clone https://github.com/aricaldeira/geraldo --branch master
@@ -195,7 +199,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-32. Instalação do PySPED, necessário para NFe:
+- Instalação do PySPED, necessário para NFe:
 	> cd /tmp
 
 	> git clone https://github.com/odoo-brazil/PySPED.git --branch 8.0
@@ -205,7 +209,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-33. Instalação do “pyxmlsec”, necessário para NFe:
+- Instalação do “pyxmlsec”, necessário para NFe:
 	> cd /tmp
 
 	> git clone https://github.com/aricaldeira/pyxmlsec --branch master
@@ -215,44 +219,44 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-34. Após o download dos módulos, deve-se reconfigurar o arquivo de configurações. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
+- Após o download dos módulos, deve-se reconfigurar o arquivo de configurações. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
 	> addons_path = /opt/odoo/addons,/opt/odoo/openerp/addons,/opt/odoo/localizacao/l10n-brazil,/opt/odoo/localizacao/account-fiscal-rule,/opt/odoo/localizacao/odoo-brazil-eletronic-documents,/opt/odoo/localizacao/server-tools
 
 Caso tenha algum outro módulo, este deve ser indicado em “addons_path”.
 
 
-35. Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
+- Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
 	> sudo /etc/init.d/odoo-server start
 
 
-36. É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
+- É posssível também verificar o arquivo de log e conferir como o servidor foi iniciado:
 	> cat /var/log/odoo/odoo-server.log
 
 
-37. Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
+- Se arquivo de log estiver ok, aponte o seu navegador de internet para o seguinte endereço:
 	> http://IP_ou_domain:8069
 
 
-38. Caso tenha funcionado corretamente, pode-se adicionar o script para que inicie automaticamente na inicialização do sistema:
+- Caso tenha funcionado corretamente, pode-se adicionar o script para que inicie automaticamente na inicialização do sistema:
 	> sudo update-rc.d odoo-server defaults
 
 _Agora é possível reiniciar o servidor que o Odoo iniciará automaticamente._
 
 
-39. Ao digitar o comando a seguir:
+- Ao digitar o comando a seguir:
 	> ps aux | grep odoo
 
 
-40. Você deve ver uma linha similar a mostrada abaixo, informando que o servidor está funcionando.
+- Você deve ver uma linha similar a mostrada abaixo, informando que o servidor está funcionando.
 	> odoo  22743 0.2 9.3 147444 71392 ? Sl 01:30 0:05 python /opt/odoo/openerp-server -c /etc/odoo-server.conf
 
 
 Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necessários para a localização brasileira.
 
-41. Acesso o Oddo pelo seu navegador de internet:
+- Acesso o Oddo pelo seu navegador de internet:
 	> http://IP_ou_domain:8069
 
-42. Começaremos configurando o banco de dados, portanto, a tela que aparece defina o seguinte:
+- Começaremos configurando o banco de dados, portanto, a tela que aparece defina o seguinte:
 	> *Senha da administração: mantenha a atual (admin)
 
 	> *Selecione nome da base de dados: database_odoo (ex: comdesk_odoo)
@@ -266,7 +270,7 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 	> *Confirmar senha: Mesma escolhida na etapa anterior
 
 
-43. Após a configuração do banco de dados, deve-se instalar os módulos básicos para o funcionamento do Odoo. Em “Configurações”, vá até “Módulos→Local Modules” e na listagem de módulos, instale os seguintes:
+- Após a configuração do banco de dados, deve-se instalar os módulos básicos para o funcionamento do Odoo. Em “Configurações”, vá até “Módulos→Local Modules” e na listagem de módulos, instale os seguintes:
 
  	> CRM   *Módulo CRM padrão.
 
@@ -283,10 +287,10 @@ Nas próximas etapas, vamos criar o banco de dados e instalar os módulos necess
 _Demais módulos e dependências serão instalados automaticamente._
 
 
-44. Continuando com a instalação, deve-se agora instalar os módulos desenvolvidos pela comunidade brasileira (Akretion, Danimar, Kmee, etc.). Ainda em “Módulos→Local Modules”, remova o item “Aplicativos” do campo de pesquisa e para facilitar a instalação, defina a “visualização em lista” e ordene por “autor”.
+- Continuando com a instalação, deve-se agora instalar os módulos desenvolvidos pela comunidade brasileira (Akretion, Danimar, Kmee, etc.). Ainda em “Módulos→Local Modules”, remova o item “Aplicativos” do campo de pesquisa e para facilitar a instalação, defina a “visualização em lista” e ordene por “autor”.
 
 
-45. Na listagem de módulos locais, marque os seguintes módulos:
+- Na listagem de módulos locais, marque os seguintes módulos:
 
 * Account Fiscal Position Rule Purchase
 * Account Product Fiscal Classification
@@ -322,7 +326,7 @@ _Demais módulos e dependências serão instalados automaticamente._
 
 
 
-46. Após todos marcados, clique no botão [Mais], localizado na parte superior da tela de módulos locais e escolha a opção “Instale o módulo de imediato”.
+- Após todos marcados, clique no botão [Mais], localizado na parte superior da tela de módulos locais e escolha a opção “Instale o módulo de imediato”.
 
 A instalação de todos os módulos num mesmo momento, busca evitar o problema de dependências não instaladas.
 

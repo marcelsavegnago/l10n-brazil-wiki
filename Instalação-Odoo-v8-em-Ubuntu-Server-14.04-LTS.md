@@ -79,20 +79,20 @@ _Caso esteja acessando o servidor via SSH, após os comandos acima, desconecte-s
 
 
 
-- Para a instalação do WKHTMLtoPDF, necessário para geração dos arquivos PDF, deve-se escolher o download de acordo com o sistema operacional e arquitetura de seu sistema em http://wkhtmltopdf.org/downloads.html.  Em nosso caso, o sistema operacional é Ubuntu 14.04 (Trusty) e a arquitetura é 64 bits.
+- 12. Para a instalação do WKHTMLtoPDF, necessário para geração dos arquivos PDF, deve-se escolher o download de acordo com o sistema operacional e arquitetura de seu sistema em http://wkhtmltopdf.org/downloads.html ou em http://download.gna.org/wkhtmltopdf/0.12/ . No nosso caso, o sistema operacional é Ubuntu 14.04 (Trusty) e a arquitetura é 64 bits. No momento, somente a versão 0.12.1 está funcional.
 
 	> cd /tmp
 
-	> wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb   #Altere o download se necessário
+	> wget http://download.gna.org/wkhtmltopdf/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb   #Altere o download se necessário
 
-	> sudo dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+	> sudo dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
 
 	> sudo cp /usr/local/bin/wkhtmltopdf /usr/bin
 
 	> sudo cp /usr/local/bin/wkhtmltoimage /usr/bin
 
 - Confira a versão do wkhtmltopdf, digitando o seguinte comando no terminal:
-	> wkhtmltopdf –version   # Se a versão for 0.12.2.1, está correta
+	> wkhtmltopdf –version   # Se a versão for 0.12.1, está correta.
 
 - Altere para o usuário “odoo”. Com esse procedimento, vamos direto para a pasta /opt/odoo:
 	> sudo su - odoo -s /bin/bash

@@ -141,6 +141,11 @@ _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da locali
 	> sudo chown root: /etc/init.d/odoo-server   #Usuário root como proprietário do arquivo
 
 
+- Edite o arquivo /etc/init.d/odoo-server (ex.: sudo nano /etc/init.d/odoo-server)
+
+	> DAEMON=/usr/bin/odoo.py mudar para diretório /opt/odoo/odoo.py
+	> CONFIG=/etc/odoo/openerp-server.conf mudar para /etc/odoo-server.conf
+
 - Podemos agora testar o servidor. Para iniciar o servidor Odoo, digite:
 	> sudo /etc/init.d/odoo-server start
 
@@ -199,7 +204,17 @@ Os próximos passos são necessários para a instalação da localização brasi
 	> sudo python setup.py install
 
 
-- Instalação do PySPED, necessário para NFe:
+- Instalação do PySPED (e instalação manual da dependência pyxmlsec), necessário para NFe:
+	> cd /tmp
+
+	> wget http://labs.libre-entreprise.org/download.php/430/pyxmlsec-0.3.0.tar.gz
+
+	> tar xvzf pyxmlsec-0.3.0.tar.gz
+
+	> cd pyxmlsec-0.3.0
+
+	> python setup.py install
+
 	> cd /tmp
 
 	> git clone https://github.com/odoo-brazil/PySPED.git --branch 8.0

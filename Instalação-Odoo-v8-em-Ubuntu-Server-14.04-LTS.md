@@ -175,11 +175,11 @@ Os próximos passos são necessários para a instalação da localização brasi
 
 
 - Faça o download do branch 8.0 da localização que está no github:
-	> git clone https://github.com/odoo-brazil/l10n-brazil.git --branch 8.0 --depth 1
+	> git clone https://github.com/oca/l10n-brazil.git --branch 8.0 --depth 1
 
 
 - Download do branch 8.0 do “Acoount Fiscal Rule”, que são dependências da localização:
-	> git clone https://github.com/odoo-brazil/account-fiscal-rule.git --branch 8.0 --depth 1
+	> git clone https://github.com/oca/account-fiscal-rule.git --branch 8.0 --depth 1
 
 
 - Faça o download do branch 8.0 do “Eletronic Documents”, que são dependências da NFe:
@@ -197,7 +197,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 - Instalação do “Geraldo Reports”, necessário para relatórios pdf:
 	> cd /tmp
 
-	> git clone https://github.com/aricaldeira/geraldo --branch master
+	> git clone https://github.com/odoo-brazil/geraldo --branch master
 
 	> cd geraldo
 
@@ -227,7 +227,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 - Instalação do “pyxmlsec”, necessário para NFe:
 	> cd /tmp
 
-	> git clone https://github.com/aricaldeira/pyxmlsec --branch master
+	> git clone https://github.com/odoo-brazil/pyxmlsec --branch master
 
 	> cd pyxmlsec
 

@@ -128,7 +128,7 @@ _Mais adiante, voltaremos a editar esse arquivo para colocar o caminho da locali
 - Crie a pasta para o arquivo de log e defina o respectivo proprietário:
 	> sudo mkdir /var/log/odoo
 
-	> sudo chown odoo:root /var/log/odoo
+	> sudo chown -R odoo:root /var/log/odoo
 
 
 - Criação do script de inicialização. Utilizaremos o script padrão (/opt/odoo/debian/init), pode ser baixado também em: https://raw.githubusercontent.com/odoo/odoo/8.0/debian/init

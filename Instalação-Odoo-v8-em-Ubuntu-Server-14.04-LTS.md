@@ -213,7 +213,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 
 	> cd pyxmlsec-0.3.0
 
-	> python setup.py install
+	> sudo python setup.py install
 
 	> cd /tmp
 

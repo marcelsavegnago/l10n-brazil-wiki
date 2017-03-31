@@ -235,7 +235,7 @@ Os próximos passos são necessários para a instalação da localização brasi
 
 
 - Após o download dos módulos, deve-se reconfigurar o arquivo de configurações. Use o seu editor de texto favorito: ex: sudo nano /etc/odoo-server.conf.
-	> addons_path = /opt/odoo/addons,/opt/odoo/openerp/addons,/opt/odoo/localizacao/l10n-brazil,/opt/odoo/localizacao/account-fiscal-rule,/opt/odoo/localizacao/odoo-brazil-eletronic-documents,/opt/odoo/localizacao/server-tools
+	> addons_path = /opt/odoo/addons,/opt/odoo/odoo/addons,/opt/odoo/localizacao/l10n-brazil,/opt/odoo/localizacao/account-fiscal-rule,/opt/odoo/localizacao/odoo-brazil-eletronic-documents,/opt/odoo/localizacao/server-tools
 
 Caso tenha algum outro módulo, este deve ser indicado em “addons_path”.
 

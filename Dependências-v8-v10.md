@@ -101,5 +101,5 @@ apt-get update \
         && tar xvf wkhtmltox.tar.xz \
         && cp wkhtmltox/lib/* /usr/local/lib/ \
         && cp wkhtmltox/bin/* /usr/local/bin/ \
-        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/ \
+        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/
 ```

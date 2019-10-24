@@ -22,6 +22,9 @@ Crie um arquivo de pre-commit com a seguinte conteúdo:
 #!/bin/sh
 pre-commit run -a
 ```
+Agora é só commitar que as validações são executadas automaticamente
+
+![Image](https://i.imgur.com/jccdfBO.png)
 
 Bom código!
 
